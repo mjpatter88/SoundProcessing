@@ -1,0 +1,24 @@
+Written by Michael Patterson in the fall of 2009.
+First project in Computer Science 229 at Iowa State University.
+I recieved a 1900/1900 on it.
+
+This project can be made simply by typing "make".
+All the files are in this directory and all the java files are in the default
+package.  The c files needed for the jni are compiled into the "fourier_lib.so"
+file.  This should be loaded dynamically, so there is no need to change any file
+paths.
+
+In the makefile I link to the correct Java libraries for the jni.  They work for
+both my pc and pyrite, but I've also included the normal path in the comment in
+case something goes wrong.  I've tested the Makefile on pyrite so it 
+should work fine.
+
+One issue I ran into was that java doesn't have any unsigned int data type.  The
+best solution I could come up with was to cast to doubles, and then if the value
+is negative, I add 2 times Max_Int_Value to it to get it back to the right value.
+
+Also, after testing the dtmf program, I made some changes from the dtmf 
+description in the assignment sheet.  I got much more reliable results when
+I compared the frequency component to 2.5x the value 3.5% away rather than 5x.
+I also check that the component is > 500.  I've tested this and it's been 
+properly picking up button presses that meet the specs given in the assignment.
